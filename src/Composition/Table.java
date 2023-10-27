@@ -1,7 +1,9 @@
 package Composition;
+import Abstraction.Billable;
+
 import java.util.ArrayList;
 
-public class Table {
+public class Table implements Billable {
 
     private Integer width = 20;
     private Integer length = 10;
@@ -21,5 +23,11 @@ public class Table {
         for (int i = 0; i < numLegs; i++){
             legs.add(new Leg(legLength));
         }
+    }
+
+    // Abstract method
+    @Override
+    public Float getPrice() {
+        return (float) (width * length * 1.00);
     }
 }
